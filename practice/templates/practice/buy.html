@@ -1,0 +1,33 @@
+{% extends "practice/layout.html" %}
+
+{% block title %}
+    Buy
+{% endblock %}
+
+{% block main %}
+
+
+        <form action="/buy" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <input autocomplete="off" autofocus="" class="form-control" required="" name="symbol" placeholder="Symbol" type="text">
+            </div>
+            <div class="form-group">
+                <input autocomplete="off" class="form-control" required="" min="1" name="shares" placeholder="Shares" type="number">
+            </div>
+            <select class="form-control" required="" name="Type" style="text-transform: uppercase;">
+                <option disabled="" selected="" value="">Type</option>
+                    <option>stock</option>
+                    <option>crypto</option>
+                </select>
+            {% for message in messages %}
+            
+            <div class="alert alert-success">
+                <a class="close" href="#" data-dismiss="alert">×</a>
+            {{ message }}
+            </div>
+            
+            {% endfor %}
+            <button class="btn btn-dark" type="submit">Buy</button>
+        </form>
+{% endblock %}

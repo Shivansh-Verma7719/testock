@@ -1,0 +1,90 @@
+{% extends "practice/layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+
+<style>
+
+#login-card{
+    width:350px;
+    border-radius: 25px;
+    margin:50px auto;
+  
+}
+
+#id_username{
+    border-radius:30px;
+    background-color: #ebf0fc;
+    border-color: #ebf0fc;
+    color: #9da3b0;
+}
+#id_password{
+    border-radius:30px;
+    background-color: #ebf0fc;
+    border-color: #ebf0fc;
+    color: #9da3b0;
+}
+
+
+#button{
+    border-radius:30px;
+
+}
+
+#btn{
+   position: absolute; 
+   bottom: -35px; 
+   padding: 5px;
+   margin: 0px 55px;
+   align-items: center;
+   border-radius: 5px"
+}
+#container{
+    margin-top:25px;
+}
+
+.btn-circle.btn-sm { 
+            width: 40px; 
+            height: 40px; 
+            padding: 2px 0px; 
+            border-radius: 25px; 
+            font-size: 14px; 
+            text-align: center;
+            
+            margin: 8px;
+        }
+</style>
+
+<div id="login-card" class="card">
+    <div class="card-body">
+        <h2 class="text-center">Login</h2>
+        <br>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <input class='form-control' type="text" name="username" autofocus="" placeholder="Enter username" autocapitalize="none" autocomplete="username" maxlength="150"
+                    required="" id="id_username">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password" name="password" placeholder="Enter password" autocomplete="current-password" required="" id="id_password">
+            </div>
+            
+            {% for message in messages %}
+            <div class="alert alert-success">
+                <a class="close" href="#" data-dismiss="alert">×</a>
+                {{ message }}
+            </div>
+            {% endfor %}
+            <button type="submit" id="button" class="btn btn-primary deep-purple btn-block ">Login</button>
+            <br>
+            
+
+        </form>
+    </div>
+    <div>
+
+{% endblock %}

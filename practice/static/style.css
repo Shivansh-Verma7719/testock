@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css?family=Work+Sans:400,600");
+body {
+  margin: 0;
+  font-family: "Work Sans", sans-serif;
+  /*background: linear-gradient(90deg, #92FE9D 0%, #00C9FF 100%);*/
+  background: white;
+  font-weight: 800;
+}
+
+header {
+  /*background: #55d6aa;*/
+  background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+  
+  display: flex;
+}
+
+header::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+nav {
+  float: left;
+  display: flex;
+}
+#profile-image {
+  flex-basis: 20%;
+  font-size: 0;
+  height: 10px;
+  width: 10px;
+}
+
+#profile-image img {
+  width: 100%;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  justify-content: space-around;
+  flex-grow: 1;
+  list-style: none;
+}
+
+nav li {
+  display: inline-flex;
+  margin-left: 25px;
+  margin-top: 20px;
+
+  margin-bottom: 23px;
+  position: relative;
+}
+
+nav a {
+  color: #444;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: #000;
+  text-decoration: none;
+}
+
+.lg {
+  justify-content: flex-end;
+}
+nav a::before {
+  content: "";
+  display: block;
+  height: 3px;
+  background-color: #444;
+
+  position: absolute;
+  top: 0;
+  width: 0%;
+
+  transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before {
+  width: 100%;
+}
+
+main .form-control {
+  /* Center form controls */
+  display: inline-block;
+
+  /* Override Bootstrap's 100% width for form controls */
+  width: auto;
+}
+
+main {
+  /* Scroll horizontally as needed */
+  overflow-x: auto;
+  /* Center contents */
+  text-align: center;
+}
+
+main img {
+  /* Constrain images on small screens */
+  max-width: 100%;
+}
+
+.section {
+  padding: 0.5rem 2rem 1rem 2rem;
+  color: black;
+}
+.section:hover {
+  background-color: #55d6aa;
+  font-size: 150%;
+  transition: background-color 0.75s ease-in-out;
+}
+
+.container{
+  display: flex;
+  width: 100%;
+}
+

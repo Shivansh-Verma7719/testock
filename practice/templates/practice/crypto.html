@@ -1,0 +1,27 @@
+{% extends "practice/layout.html" %}
+
+{% block title %}
+    Crypto
+{% endblock %}
+
+{% block main %}
+    <form action="/crypto" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" required="" name="coin" placeholder="Coin" type="text">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" required="" name="coin_to" placeholder="Currency" type="text">
+        </div>
+        
+        {% for message in messages %}
+        <div class="alert alert-success">
+            <a class="close" href="#" data-dismiss="alert">×</a>
+            {{ message }}
+        </div>
+        {% endfor %}
+
+        <button class="btn btn-dark" type="submit">Convert</button>
+    </form>
+    
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "practice/layout.html" %}
+
+{% block title %}
+    Add
+{% endblock %}
+
+{% block main %}
+    <form action="/add" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" required="" name="amount" placeholder="Amount" type="text">
+        </div>
+        {% for message in messages %}
+        
+        <div class="alert alert-success">
+            <a class="close" href="#" data-dismiss="alert">×</a>
+            {{ message }}
+        </div>
+        {% endfor %}
+        <button class="btn btn-dark" type="submit">Add</button>
+    </form>
+{% endblock %}

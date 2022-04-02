@@ -1,0 +1,23 @@
+{% extends "practice/layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <form action="/quote" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" required="" name="symbol" placeholder="Stock Symbol" type="text">
+        </div>
+        {% for message in messages %}
+        
+        <div class="alert alert-success">
+            <a class="close" href="#" data-dismiss="alert">×</a>
+            {{ message }}
+        </div>
+        {% endfor %}
+        <button class="btn btn-dark" type="submit">Quote</button>
+    </form>
+    
+{% endblock %}

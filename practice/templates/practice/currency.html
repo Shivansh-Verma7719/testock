@@ -1,0 +1,28 @@
+{% extends "practice/layout.html" %}
+
+{% block title %}
+    Currency
+{% endblock %}
+
+{% block main %}
+    <form action="/currency" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="currency" required="" placeholder="Currency" type="text">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="currency_to" required="" placeholder="Currency to" type="text">
+        </div>
+        
+        {% for message in messages %}
+        
+        <div class="alert alert-success">
+            <a class="close" href="#" data-dismiss="alert">×</a>
+            {{ message }}
+        </div>
+        {% endfor %}
+        
+        <button class="btn btn-dark" type="submit">Convert</button>
+    </form>
+    
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends "practice/layout.html" %}
+
+{% block title %}
+    Crypto
+{% endblock %}
+
+{% block main %}
+<p>
+    From {{coin.name}} to {{sym_to}}.
+</p>
+<div class="section">
+
+    <p>
+        {{sym}} = {{coin.exchange}} {{sym_to}}<br>
+        <br>{{coin.description}}
+    </p>
+</div>
+   
+<!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+    <div id="tradingview_7f7f0"></div>
+    <div class="tradingview-widget-copyright"><a href="https://in.tradingview.com/symbols/{{sym}}{{sym_to}}/" rel="noopener"
+            target="_blank"><span class="blue-text">{{sym}}{{sym_to}} Chart</span></a> by TradingView</div>
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <script type="text/javascript">
+        new TradingView.widget(
+            {
+                "width": 1040,
+                "height": 610,
+                "symbol": "{{sym}}{{sym_to}}",
+                "interval": "W",
+                "timezone": "Etc/UTC",
+                "theme": "light",
+                "style": "1",
+                "locale": "in",
+                "toolbar_bg": "#f1f3f6",
+                "enable_publishing": false,
+                "allow_symbol_change": true,
+                "container_id": "tradingview_7f7f0"
+            }
+        );
+    </script>
+</div>
+<!-- TradingView Widget END -->
+<hr>
+    <div class="card-deck">
+        <div class="card">
+            <img src="{{art1.urlToImage}}" class="card-img-top" alt="Image">
+            <div class="card-body" style="background-color:white; color:black">
+                <h5 class="card-title">{{art1.title}}</h5>
+                <p class="card-text">{{art1.content}}</p>
+                <a href="{{art1.url}}" class="btn btn-secondary btn-lg btn-block" role="button" aria-pressed="true">Go to
+                    the full article.</a>
+    
+            </div>
+            <div class="card-footer" style="background-color:white; color:black">
+                <small class="text-muted">Last updated at {{art1.publishedAt}}</small>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="card-deck">
+        <div class="card">
+            <img src="{{art2.urlToImage}}" class="card-img-top" alt="Image">
+            <div class="card-body" style="background-color:white; color:black">
+                <h5 class="card-title">{{art2.title}}</h5>
+                <p class="card-text">{{art2.content}}</p>
+                <a href="{{art2.url}}" class="btn btn-secondary btn-lg btn-block" role="button" aria-pressed="true">Go to
+                    the full article.</a>
+    
+            </div>
+            <div class="card-footer" style="background-color:white; color:black">
+                <small class="text-muted">Last updated at {{art2.publishedAt}}</small>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="card-deck">
+        <div class="card">
+            <img src="{{art3.urlToImage}}" class="card-img-top" alt="Image">
+            <div class="card-body" style="background-color:white; color:black">
+                <h5 class="card-title">{{art3.title}}</h5>
+                <p class="card-text">{{art3.content}}</p>
+                <a href="{{art3.url}}" class="btn btn-secondary btn-lg btn-block" role="button" aria-pressed="true">Go to
+                    the full article.</a>
+    
+            </div>
+            <div class="card-footer" style="background-color:white; color:black">
+                <small class="text-muted">Last updated at {{art3.publishedAt}}</small>
+            </div>
+        </div>
+    </div>
+    
+    <div class="small text-center text-muted">
+        <p>
+            News articles provided for free by <a href="https://newsapi.org/">News API</a>. View <a
+                href="https://newsapi.org/terms">News API's Terms of Service</a>.
+        </p>
+{% endblock %}
