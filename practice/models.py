@@ -1,5 +1,9 @@
 from django.db import models
-from datetime import datetime
+from django.db.models import DateTimeField
+
+class DateTimeWithoutTZField(DateTimeField):
+    def db_type(self, connection):
+        return 'timestamp'
 
 # Create your models here.
 class Users(models.Model):
@@ -16,5 +20,5 @@ class Transactions(models.Model):
     price = models.FloatField()
     symbol = models.CharField(max_length=10)
     type = models.CharField(max_length=20)
-    time = models.DateTimeField(default = datetime.now)
+    time = DateTimeWithoutTZField(auto_now=True)
 
