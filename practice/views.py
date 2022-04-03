@@ -351,21 +351,29 @@ def register(request):
     """Register user"""
     if request.method == "POST":
         form = NewUserForm(request.POST)
+        print(form)
         pass1 = request.POST['password1']
         pass2 = request.POST['password2']
+        username = request.POST['username']
+        users = Users.objects.values('username')
+        for user in users:
+            if user['username'] == username:
+                messages.error(
+                    request, "Username taken")
+                return HttpResponseRedirect("register")
         if pass1 != pass2:
             messages.error(
                 request, "Passwords do not match")
             return HttpResponseRedirect("register")
         if len(pass1) < 8:
             messages.error(
-                request, "Passwords do not match")
+                request, "Passwords should have at least 8 charecters")
             return HttpResponseRedirect("register")
         if form.is_valid():
             user = form.save()
             f = Users(username=user.username, cash=10000)
             f.save()
-            rows = Users.objects.get(username=username)
+            rows = Users.objects.get(username=user.username)
             request.session["user_id"] = rows.id
             auth_login(request, user)
             return HttpResponseRedirect("/")
