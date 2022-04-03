@@ -357,6 +357,10 @@ def register(request):
             messages.error(
                 request, "Passwords do not match")
             return HttpResponseRedirect("register")
+        if len(pass1) < 8:
+            messages.error(
+                request, "Passwords do not match")
+            return HttpResponseRedirect("register")
         if form.is_valid():
             user = form.save()
             f = Users(username=user.username, cash=10000)
