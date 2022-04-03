@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 # Create your models here.
 class Users(models.Model):
@@ -15,5 +16,5 @@ class Transactions(models.Model):
     price = models.FloatField()
     symbol = models.CharField(max_length=10)
     type = models.CharField(max_length=20)
-    time = models.DateTimeField(auto_now_add=True)
+    time = models.DateTimeField(default = datetime.now, auto_now_add=True)
 
