@@ -16,12 +16,14 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-8-9batrse&)@o7&hf4x*ier_$58l+e=yv3f+!wu&08k_r!k8*j'
+# SECRET_KEY = 'django-insecure-8-9batrse&)@o7&hf4x*ier_$58l+e=yv3f+!wu&08k_r!k8*j'
 
 PORT = os.getenv("PORT", default="5000")
 
