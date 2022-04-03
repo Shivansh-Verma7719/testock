@@ -7,8 +7,7 @@ from django.contrib.auth import login as auth_login
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from django.db.models import Sum
-
-
+from datetime import datetime
 
 from practice.models import Transactions, Users
 from .forms import NewUserForm
@@ -134,7 +133,7 @@ def buy(request):
             user = Users.objects.get(id=userid)
             # Recording the transaction.
             f = Transactions(user_id=user, name=stock_name, shares=shares,
-                             price=stock_price, type='BUY:STOCKS', symbol=sym)
+                             price=stock_price, type='BUY:STOCKS', symbol=sym, time=datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
             f.save()
 
             return HttpResponseRedirect("/")
@@ -189,7 +188,7 @@ def buy(request):
 
             # Recording the transaction.
             f = Transactions(user_id=user, name=coin_name, shares=shares,
-                             price=coin_price, type='BUY:CRYPTO', symbol=coin_sym)
+                             price=coin_price, type='BUY:CRYPTO', symbol=coin_sym, time=datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
             f.save()
 
             return HttpResponseRedirect("/")
@@ -420,7 +419,7 @@ def sell(request):
             # Recording the transaction.
             user = Users.objects.get(id=user_id)
             f = Transactions(user_id=user, name=stock_name, shares=-shares,
-                             price=stock_price, type='SELL, STOCKS', symbol=sym)
+                             price=stock_price, type='SELL, STOCKS', symbol=sym, time=datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
             f.save()
 
             newshares = Transactions.objects.filter(user_id=user_id).filter(
@@ -467,7 +466,7 @@ def sell(request):
 
             # Recording the transaction.
             f = Transactions(user_id=Users.objects.get(id=user_id), name=coin_name, shares=-shares,
-                             price=coin_price, type='SELL, CRYPTO', symbol=coin_sym)
+                             price=coin_price, type='SELL, CRYPTO', symbol=coin_sym , time=datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
             f.save()
 
             newshares = Transactions.objects.filter(user_id=user_id).filter(
@@ -501,7 +500,7 @@ def add(request):
 
         user = Users.objects.get(id=user_id)
         f = Transactions(user_id=user, name='N.A', shares=0,
-                         price=0, type='MONEY ADDED', symbol='N.A')
+                         price=0, type='MONEY ADDED', symbol='N.A', time=datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
         f.save()
 
         return HttpResponseRedirect("/")

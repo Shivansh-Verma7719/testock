@@ -14,5 +14,5 @@ class Transactions(models.Model):
     price = models.FloatField()
     symbol = models.CharField(max_length=10)
     type = models.CharField(max_length=20)
-    time = models.DateField(auto_now_add=True)
+    time = models.CharField(max_length=30)
 
