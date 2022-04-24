@@ -1,6 +1,6 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,django,python
-# Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,django,python
+# Created by https://www.toptal.com/developers/gitignore/api/django,python,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=django,python,visualstudiocode
 
 ### Django ###
 *.log
@@ -261,4 +261,4 @@ cython_debug/
 
 # Support for Project snippet scope
 
-# End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,django,python
+# End of https://www.toptal.com/developers/gitignore/api/django,python,visualstudiocode
