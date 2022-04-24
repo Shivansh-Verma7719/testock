@@ -16,5 +16,5 @@ class Transactions(models.Model):
     price = models.FloatField()
     symbol = models.CharField(max_length=10)
     type = models.CharField(max_length=20)
-    time = models.DateTimeField(default=datetime.datetime.now().strftime("%Y/%m/%d %H:%M"))
+    time = models.DateTimeField(default=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
