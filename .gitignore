@@ -27,6 +27,7 @@ media
 # Distribution / packaging
 .Python
 build/
+*.sqlite3
 develop-eggs/
 dist/
 downloads/
