@@ -27,6 +27,7 @@ main .form-control {
 
   /* Override Bootstrap's 100% width for form controls */
   width: auto;
+  
 }
 
 main {
