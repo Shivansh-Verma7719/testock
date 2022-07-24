@@ -6,11 +6,9 @@
 {% endblock %}
 
 {% block main %}
-<div style="display: flex;
-  width: 100%;">
-<table class="table table-striped table-bordered table-hover" style="float: right;
-    margin-left: 15px;
-    width: 69%; ">
+<div class=" info">
+<div class="info-item1">
+<table class="table table-striped table-bordered table-hover">
     <thead >
         <tr>
             <td colspan="2"></td>
@@ -84,9 +82,8 @@
         <td><b>${{ nettotal|floatformat:2 }}</b></td>
     </tfoot>
 </table>
-<div class="tradingview-widget-container" style="float: left;
-    margin: 20px;
-    width: 50%; ">
+</div>
+<div class="tradingview-widget-container info-item2">
     <div class="tradingview-widget-container__widget"></div>
     <div class="tradingview-widget-copyright"><a href="https://in.tradingview.com/markets/" rel="noopener"
             target="_blank"><span class="blue-text">Financial Markets</span></a> by TradingView</div>
@@ -233,6 +230,8 @@
 </div>
 <!-- TradingView Widget END -->
 </div>
+<br>
+<br>
 
 {% if first != None %}
 <hr>
