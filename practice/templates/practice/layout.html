@@ -25,27 +25,56 @@
 
         <header>
                 {% load static %}
-                <div id="profile-image"><a href="/"><img src="{% static 'logo.png' %}" alt="logo"></a></div>
-        
-                <nav>
-                    {% if user.is_authenticated %}
-                    <ul>
-                        <li ><a href="/quote">Quote</a></li>
-                        <li ><a href="/crypto">Cryptocurrency</a></li>
-                        <li><a href="/currency">Currency</a></li>
-                        <li><a href="/buy">Buy</a></li>
-                        <li><a href="/sell">Sell</a></li>
-                        <li><a href="/history">History</a></li>
-                        <li><a href="/add">Add Money</a></li>
-                        <li class="lg"><a href="/logout">Log Out</a></li>
-                    </ul>
-                    
-                    {% else %}
-                    <ul>
-                        <li><a href="/register">Register</a></li>
-                        <li><a href="/login">Log In</a></li>
-                    </ul>
-                    {% endif %}
+                
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="/">
+                        <img src="{% static 'logo.png' %}" width=250rem height=70rem alt="logo">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            {% if user.is_authenticated %}
+                            
+                            <li class="nav-item first">
+                                <a class="nav-link" href="/quote">Quote</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/crypto">Cryptocurrency</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/currency">Currency</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/buy">Buy</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/sell">Sell</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/history">History</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/add">Add Money</a>
+                            </li>
+                            <li class="nav-item" style="align-items: flex-end;"><a class="nav-link" href="/logout">Log Out</a>
+                            </li>
+                            
+                            
+                            {% else %}
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="/register">Register</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/login">Log In</a>
+                            </li>
+                            
+                            {% endif %}
+                        </ul>
+                    </div>
                 </nav>
 
         </header>
