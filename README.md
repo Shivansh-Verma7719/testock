@@ -14,10 +14,9 @@ Testock is a web application designed to provide a platform for novice investors
 ## Technologies Used
 
 - **Django**: Django framework is used for backend development.
-- **Flask**: Flask is used for building RESTful APIs.
 - **SQL**: SQL is used for database management to enable user account creation and trading history tracking.
 - **HTML/CSS/JavaScript**: Frontend development is done using these technologies for creating a user-friendly interface.
-- **Heroku/PythonAnywhere**: Various website hosting platforms are explored for deploying the application.
+- **PythonAnywhere**: Various website hosting platforms are explored for deploying the application.
 
 ## Getting Started
 
